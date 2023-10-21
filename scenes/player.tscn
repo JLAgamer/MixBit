@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://b47t1ugyqhloy"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_4ajbx"]
+[ext_resource type="Texture2D" uid="uid://bc7voajcddj2v" path="res://aseprite/player.aseprite" id="1_78bvw"]
+[ext_resource type="Script" path="res://scripts/GrabComponent.gd" id="3_f0xc6"]
+[ext_resource type="Script" path="res://scripts/Health.gd" id="4_356uy"]
+[ext_resource type="PackedScene" uid="uid://u0k0b82mikbr" path="res://scenes/heart.tscn" id="5_pjiyu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yofc5"]
+size = Vector2(9, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7nu4"]
+size = Vector2(16, 10)
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_4ajbx")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_78bvw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_yofc5")
+
+[node name="GrabComponent" type="Node2D" parent="."]
+position = Vector2(-6, 3)
+script = ExtResource("3_f0xc6")
+
+[node name="Area2D" type="Area2D" parent="GrabComponent"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabComponent/Area2D"]
+position = Vector2(6, -14)
+shape = SubResource("RectangleShape2D_s7nu4")
+
+[node name="Health" type="Node2D" parent="."]
+process_mode = 3
+script = ExtResource("4_356uy")
+heart = ExtResource("5_pjiyu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Health"]

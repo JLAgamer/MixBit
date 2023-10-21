@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bxjvop1jly0bg"]
+
+[ext_resource type="Shader" path="res://cus.gdshader" id="1_4iic1"]
+
+[resource]
+shader = ExtResource("1_4iic1")
+shader_parameter/shirt_placeholder = Color(1, 0, 1, 1)
+shader_parameter/shirt_color = Color(0.559172, 0.706963, 0.690479, 1)
+shader_parameter/eyes_placeholder = Color(1, 0, 0, 1)
+shader_parameter/eyes_color = Color(0, 0, 0, 1)
+shader_parameter/eyebrows_placeholder = Color(1, 1, 0, 1)
+shader_parameter/eyebrows_color = Color(0, 0, 0, 1)

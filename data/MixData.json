@@ -1,0 +1,82 @@
+{
+  "coke": {
+	"coke": null,
+	"beer": null,
+	"red_bull": null,
+	"vodka": null,
+	"rum": "rum_and_coke",
+	"orange_juice": null,
+	"tonic": null,
+	"gin": null
+  },
+  "beer": {
+	"coke": null,
+	"beer": null,
+	"red_bull": null,
+	"vodka": null,
+	"rum": null,
+	"orange_juice": null,
+	"tonic": null,
+	"gin": null
+  },
+  "red_bull": {
+	"coke": null,
+	"beer": null,
+	"red_bull": null,
+	"vodka": "vodka_red_bull",
+	"rum": null,
+	"orange_juice": null,
+	"tonic": null,
+	"gin": null
+  },
+  "vodka": {
+	"coke": null,
+	"beer": null,
+	"red_bull": "vodka_red_bull",
+	"vodka": null,
+	"rum": null,
+	"orange_juice": "screwdriver",
+	"tonic": null,
+	"gin": null
+  },
+  "rum": {
+	"coke": "rum_and_coke",
+	"beer": null,
+	"red_bull": null,
+	"vodka": null,
+	"rum": null,
+	"orange_juice": null,
+	"tonic": null,
+	"gin": null
+  },
+  "orange_juice": {
+	"coke": null,
+	"beer": null,
+	"red_bull": null,
+	"vodka": "screwdriver",
+	"rum": null,
+	"orange_juice": null,
+	"tonic": null,
+	"gin": null
+  },
+  "tonic": {
+	"coke": null,
+	"beer": null,
+	"red_bull": null,
+	"vodka": null,
+	"rum": null,
+	"orange_juice": null,
+	"tonic": null,
+	"gin": "gin_and_tonic"
+  },
+  "gin": {
+	"coke": null,
+	"beer": null,
+	"red_bull": null,
+	"vodka": null,
+	"rum": null,
+	"orange_juice": null,
+	"tonic": "gin_and_tonic",
+	"gin": null
+  }
+}

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxtegtfi11onr"]
+
+[ext_resource type="Texture2D" uid="uid://i2dc3bldmmc2" path="res://aseprite/mix_placeholder.aseprite" id="1_8c40a"]
+[ext_resource type="Script" path="res://scripts/mixer.gd" id="1_fhh6v"]
+[ext_resource type="PackedScene" uid="uid://s0ghinew2dfu" path="res://scenes/mixer_ui.tscn" id="3_waqs6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb7v0"]
+size = Vector2(16, 16)
+
+[node name="Mixer" type="Node2D"]
+script = ExtResource("1_fhh6v")
+
+[node name="MixPlaceholder" type="Sprite2D" parent="."]
+texture = ExtResource("1_8c40a")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cb7v0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Mixer UI" parent="CanvasLayer" instance=ExtResource("3_waqs6")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[connection signal="button_pressed" from="CanvasLayer/Mixer UI" to="." method="_on_mixer_ui_button_pressed"]

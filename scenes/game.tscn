@@ -1,0 +1,156 @@
+[gd_scene load_steps=12 format=3 uid="uid://vxlvni8ix156"]
+
+[ext_resource type="PackedScene" uid="uid://dwhq60de330d8" path="res://scenes/bar.tscn" id="2_lxn5k"]
+[ext_resource type="PackedScene" uid="uid://b47t1ugyqhloy" path="res://scenes/player.tscn" id="2_qa3wm"]
+[ext_resource type="PackedScene" uid="uid://dftoye1x3d205" path="res://scenes/customer.tscn" id="3_pkf3l"]
+[ext_resource type="PackedScene" uid="uid://bk4i0736jtxdv" path="res://scenes/table.tscn" id="5_ly7bn"]
+[ext_resource type="PackedScene" uid="uid://svy5oougnrvj" path="res://scenes/bottle_spawner.tscn" id="5_oluh0"]
+[ext_resource type="PackedScene" uid="uid://dxtegtfi11onr" path="res://scenes/mixer.tscn" id="6_jqkfc"]
+[ext_resource type="Script" path="res://scripts/CustomerSpawner.gd" id="6_xy7mx"]
+[ext_resource type="Script" path="res://scripts/ScoreUI.gd" id="8_wjmfy"]
+[ext_resource type="Script" path="res://scripts/GameOver.gd" id="9_fohg0"]
+[ext_resource type="Script" path="res://scripts/bottle_spawn_manager.gd" id="10_xdnmo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq2jt"]
+size = Vector2(17.7853, 93.7421)
+
+[node name="Game" type="Node2D"]
+scale = Vector2(0.915911, 0.938746)
+
+[node name="Table" parent="." instance=ExtResource("5_ly7bn")]
+position = Vector2(52.4068, 33.0228)
+
+[node name="Table2" parent="." instance=ExtResource("5_ly7bn")]
+position = Vector2(87.3447, 51.1321)
+
+[node name="Table3" parent="." instance=ExtResource("5_ly7bn")]
+position = Vector2(17.4689, 51.1321)
+
+[node name="Table4" parent="." instance=ExtResource("5_ly7bn")]
+position = Vector2(122.283, 34.088)
+
+[node name="Table5" parent="." instance=ExtResource("5_ly7bn")]
+position = Vector2(157.221, 51.1321)
+
+[node name="Bar" parent="." instance=ExtResource("2_lxn5k")]
+position = Vector2(87.3447, 82.0243)
+
+[node name="Mixer" parent="." instance=ExtResource("6_jqkfc")]
+position = Vector2(165.955, 85.2201)
+
+[node name="BottleSpawner" parent="." instance=ExtResource("5_oluh0")]
+position = Vector2(34.938, 80)
+
+[node name="BottleSpawner2" parent="." instance=ExtResource("5_oluh0")]
+position = Vector2(52.4068, 80)
+
+[node name="BottleSpawner3" parent="." instance=ExtResource("5_oluh0")]
+position = Vector2(69.8758, 80)
+
+[node name="BottleSpawner4" parent="." instance=ExtResource("5_oluh0")]
+position = Vector2(87.3447, 80)
+
+[node name="BottleSpawner5" parent="." instance=ExtResource("5_oluh0")]
+position = Vector2(104.814, 80)
+
+[node name="BottleSpawner6" parent="." instance=ExtResource("5_oluh0")]
+position = Vector2(122.283, 80)
+
+[node name="BottleSpawner7" parent="." instance=ExtResource("5_oluh0")]
+position = Vector2(139.752, 80)
+
+[node name="Player" parent="." instance=ExtResource("2_qa3wm")]
+position = Vector2(87.3447, 88.4158)
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(-8.73447, 51.132)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-0.316382, 0)
+shape = SubResource("RectangleShape2D_jq2jt")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(-8.73447, 51.132)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(192.317, 0)
+shape = SubResource("RectangleShape2D_jq2jt")
+
+[node name="CustomerSpawner" type="Node2D" parent="."]
+position = Vector2(87.3447, 0)
+script = ExtResource("6_xy7mx")
+customer_scene = ExtResource("3_pkf3l")
+
+[node name="Timer" type="Timer" parent="CustomerSpawner"]
+wait_time = 5.0
+
+[node name="ScoreUI" type="Label" parent="."]
+offset_left = 126.65
+offset_top = -1.06525
+offset_right = 174.65
+offset_bottom = 24.9347
+theme_override_font_sizes/font_size = 8
+text = "Score: 0"
+horizontal_alignment = 2
+script = ExtResource("8_wjmfy")
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("9_fohg0")
+
+[node name="Control" type="Control" parent="GameOver"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOver/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_right = 46.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.960784, 0.192157, 0.180392, 1)
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GameOver/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 16.0
+offset_right = 52.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 8
+text = "HIGH SCORE: "
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="GameOver/Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -12.0
+offset_right = -48.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "Restart"
+
+[node name="BottleSpawnManager" type="Node" parent="."]
+script = ExtResource("10_xdnmo")
+
+[connection signal="timeout" from="CustomerSpawner/Timer" to="CustomerSpawner" method="_on_timer_timeout"]
+[connection signal="pressed" from="GameOver/Control/Button" to="GameOver" method="_on_button_pressed"]

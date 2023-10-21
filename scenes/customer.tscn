@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://dftoye1x3d205"]
+
+[ext_resource type="Script" path="res://scripts/customer.gd" id="1_msdjn"]
+[ext_resource type="PackedScene" uid="uid://cuyplp17ulrcj" path="res://aseprite/cus_shader.aseprite" id="2_62ecv"]
+[ext_resource type="Shader" path="res://cus.gdshader" id="2_b65qu"]
+[ext_resource type="Script" path="res://scripts/Sprite.gd" id="4_lby8q"]
+[ext_resource type="Texture2D" uid="uid://bvo1aqj7yuyyl" path="res://aseprite/empty_bottle.aseprite" id="5_etqf1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4egx"]
+shader = ExtResource("2_b65qu")
+shader_parameter/shirt_placeholder = Color(1, 0, 1, 1)
+shader_parameter/shirt_color = Color(0.322809, 0.083378, 0.538012, 1)
+shader_parameter/eyes_placeholder = Color(1, 0, 0, 1)
+shader_parameter/eyes_color = Color(0, 0, 0, 1)
+shader_parameter/eyebrows_placeholder = Color(1, 1, 0, 1)
+shader_parameter/eyebrows_color = Color(0.545098, 0.270588, 0.0745098, 1)
+
+[sub_resource type="Animation" id="Animation_0mcuh"]
+resource_name = "desire_hover"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -13), Vector2(0, -15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1xo6"]
+_data = {
+"desire_hover": SubResource("Animation_0mcuh")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6xsr"]
+size = Vector2(13, 15)
+
+[node name="Customer" type="Node2D" groups=["Customer"]]
+process_mode = 3
+script = ExtResource("1_msdjn")
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("2_62ecv")]
+material = SubResource("ShaderMaterial_j4egx")
+autoplay = "default"
+frame_progress = 0.544503
+script = ExtResource("4_lby8q")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Desire" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_etqf1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Desire"]
+autoplay = "desire_hover"
+libraries = {
+"": SubResource("AnimationLibrary_h1xo6")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_l6xsr")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

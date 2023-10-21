@@ -1,0 +1,74 @@
+{
+  "coke": {
+	"display_name": "Coke",
+	"splash_color": "#783521",
+	"can_order": true,
+	"mixed": false
+  },
+  "beer": {
+	"display_name": "Beer",
+	"splash_color": "#D09A05",
+	"can_order": true,
+	"mixed": false
+  },
+  "red_bull": {
+	"display_name": "Red Bull",
+	"splash_color": "#e2dfd8",
+	"can_order": true,
+	"mixed": false
+  },
+  "vodka": {
+	"display_name": "Vodka",
+	"splash_color": "#d7edf6",
+	"can_order": false,
+	"mixed": false
+  },
+  "rum": {
+	"display_name": "Rum",
+	"splash_color": "#dc602c",
+	"can_order": false,
+	"mixed": false
+  },
+  "orange_juice": {
+	"display_name": "Orange Juice",
+	"splash_color": "#fea01d",
+	"can_order": false,
+	"mixed": false
+  },
+  "tonic": {
+	"display_name": "Tonic",
+	"splash_color": "#ecf4f7",
+	"can_order": false,
+	"mixed": false
+  },
+  "gin": {
+	"display_name": "Gin",
+	"splash_color": "#f3d2d2",
+	"can_order": false,
+	"mixed": false
+  },
+  "vodka_red_bull": {
+	"display_name": "Vodka Red Bull",
+	"splash_color": "#a6940f",
+	"can_order": true,
+	"mixed": true
+  },
+  "rum_and_coke": {
+	"display_name": "Rum & Coke",
+	"splash_color": "#783521",
+	"can_order": true,
+	"mixed": true
+  },
+  "screwdriver": {
+	"display_name": "Screwdriver",
+	"splash_color": "#fea01d",
+	"can_order": true,
+	"mixed": true
+  },
+  "gin_and_tonic": {
+	"display_name": "Gin & Tonic",
+	"splash_color": "#dae3d1",
+	"can_order": true,
+	"mixed": true
+  }
+}

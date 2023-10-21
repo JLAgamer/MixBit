@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwhq60de330d8"]
+
+[ext_resource type="Texture2D" uid="uid://bhtysmlvlmr4k" path="res://aseprite/table_end.aseprite" id="1_x4l40"]
+[ext_resource type="Texture2D" uid="uid://bnvvdoykmqa2k" path="res://aseprite/table_mid.aseprite" id="2_v6wjy"]
+
+[node name="Bar" type="Node2D"]
+
+[node name="TableMid" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, 0)
+scale = Vector2(6, 1)
+texture = ExtResource("2_v6wjy")
+
+[node name="TableEnd2" type="Sprite2D" parent="."]
+position = Vector2(56, -4.54747e-13)
+rotation = 3.14159
+texture = ExtResource("1_x4l40")
+
+[node name="TableEnd" type="Sprite2D" parent="."]
+position = Vector2(-56, 0)
+texture = ExtResource("1_x4l40")
