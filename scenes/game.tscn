@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://vxlvni8ix156"]
+[gd_scene load_steps=14 format=3 uid="uid://vxlvni8ix156"]
 
 [ext_resource type="PackedScene" uid="uid://dwhq60de330d8" path="res://scenes/bar.tscn" id="2_lxn5k"]
 [ext_resource type="PackedScene" uid="uid://b47t1ugyqhloy" path="res://scenes/player.tscn" id="2_qa3wm"]
@@ -6,10 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bk4i0736jtxdv" path="res://scenes/table.tscn" id="5_ly7bn"]
 [ext_resource type="PackedScene" uid="uid://svy5oougnrvj" path="res://scenes/bottle_spawner.tscn" id="5_oluh0"]
 [ext_resource type="PackedScene" uid="uid://dxtegtfi11onr" path="res://scenes/mixer.tscn" id="6_jqkfc"]
+[ext_resource type="Texture2D" uid="uid://ca5cul315uujc" path="res://aseprite/trash.aseprite" id="6_n1xcq"]
 [ext_resource type="Script" path="res://scripts/CustomerSpawner.gd" id="6_xy7mx"]
 [ext_resource type="Script" path="res://scripts/ScoreUI.gd" id="8_wjmfy"]
 [ext_resource type="Script" path="res://scripts/GameOver.gd" id="9_fohg0"]
 [ext_resource type="Script" path="res://scripts/bottle_spawn_manager.gd" id="10_xdnmo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uw8oh"]
+size = Vector2(10, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jq2jt"]
 size = Vector2(17.7853, 93.7421)
@@ -58,6 +62,19 @@ position = Vector2(122.283, 80)
 
 [node name="BottleSpawner7" parent="." instance=ExtResource("5_oluh0")]
 position = Vector2(139.752, 80)
+
+[node name="TrashCan" type="Area2D" parent="."]
+position = Vector2(12.0099, 74.5676)
+scale = Vector2(1.09181, 1.06525)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="TrashCan"]
+texture = ExtResource("6_n1xcq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrashCan"]
+position = Vector2(4.76837e-07, 1)
+shape = SubResource("RectangleShape2D_uw8oh")
 
 [node name="Player" parent="." instance=ExtResource("2_qa3wm")]
 position = Vector2(87.3447, 88.4158)

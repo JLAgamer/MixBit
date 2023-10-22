@@ -8,7 +8,7 @@ var walk_speed: float = 2.0
 var requested_drink: String
 var assigned_table: Table
 var desired_table: Table
-@onready var timer = $Timer
+@onready var timer:= $Timer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	requested_drink = DrinkManager.get_all_orderable_drinks().pick_random()
@@ -29,6 +29,7 @@ func _process(delta):
 
 func given_drink(drink_given: String):
 	if drink_given == requested_drink:
+		timer.stop()
 		leave()
 		ScoreSystem.customer_served(requested_drink)
 	else:

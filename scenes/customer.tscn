@@ -6,14 +6,14 @@
 [ext_resource type="Script" path="res://scripts/Sprite.gd" id="4_lby8q"]
 [ext_resource type="Texture2D" uid="uid://bvo1aqj7yuyyl" path="res://aseprite/empty_bottle.aseprite" id="5_etqf1"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4egx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1w4q"]
 shader = ExtResource("2_b65qu")
 shader_parameter/shirt_placeholder = Color(1, 0, 1, 1)
-shader_parameter/shirt_color = Color(0.322809, 0.083378, 0.538012, 1)
+shader_parameter/shirt_color = Color(0.591653, 0.0636564, 0.870071, 1)
 shader_parameter/eyes_placeholder = Color(1, 0, 0, 1)
 shader_parameter/eyes_color = Color(0, 0, 0, 1)
 shader_parameter/eyebrows_placeholder = Color(1, 1, 0, 1)
-shader_parameter/eyebrows_color = Color(0.545098, 0.270588, 0.0745098, 1)
+shader_parameter/eyebrows_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_0mcuh"]
 resource_name = "desire_hover"
@@ -44,7 +44,7 @@ process_mode = 3
 script = ExtResource("1_msdjn")
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("2_62ecv")]
-material = SubResource("ShaderMaterial_j4egx")
+material = SubResource("ShaderMaterial_d1w4q")
 autoplay = "default"
 frame_progress = 0.544503
 script = ExtResource("4_lby8q")
