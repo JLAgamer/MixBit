@@ -64,7 +64,7 @@ position = Vector2(122.283, 80)
 position = Vector2(139.752, 80)
 
 [node name="TrashCan" type="Area2D" parent="."]
-position = Vector2(12.0099, 74.5676)
+position = Vector2(7.64266, 77.7633)
 scale = Vector2(1.09181, 1.06525)
 collision_layer = 4
 collision_mask = 2
